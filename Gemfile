@@ -7,7 +7,7 @@ ruby '2.3.5'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem "random_data", "~> 1.6.0"
-gem "rjson"  #templating for json (no version in gem because it doenst have any depenedencies)
+# gem "rjson"  #templating for json (no version in gem because it doenst have any depenedencies)
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
