@@ -9,4 +9,13 @@ class GamesController < ApplicationController
       render :json => { :status => 500, :message => error.message, :error => error.message }
     end
   end
+
+  def show
+    begin
+      game = Game.find(params[:id])
+      render :json => game.to_json
+    rescue Exception => error
+      render :json => { :status => 500, :message => error.message, :error => error.message }
+    end
+  end
 end
