@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
-  serialize :board_state 
+  serialize :board_state
+  serialize :valid_subgames
 
   after_initialize :setup
 
@@ -7,6 +8,7 @@ class Game < ApplicationRecord
 
   def setup
     if new_record?
+      self.valid_subgames = (0..8).to_a
       self.board_state = [
         Array.new(9),
         Array.new(9),
@@ -37,12 +39,6 @@ class Game < ApplicationRecord
     end
   end
 
-  def valid_subgames
-    if self.board_state.flatten.compact.blank?
-      (0..8).to_a
-    end
-  end
-
 
   def to_json
     {
@@ -50,7 +46,7 @@ class Game < ApplicationRecord
       :board => self.board,
       :winner => self.winner,
       :turn => self.turn,
-      :valid_subgames => valid_subgames
+      :valid_subgames => self.valid_subgames
     }
   end
 

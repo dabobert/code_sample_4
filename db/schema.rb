@@ -14,7 +14,8 @@ ActiveRecord::Schema.define(version: 2018_12_19_193731) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "board_state"
-    t.boolean "player1_turn", default: true
+    t.boolean "player_1_turn", default: true
+    t.string "valid_subgames"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
