@@ -10,7 +10,7 @@ class GamesController < ApplicationController
       game = Game.create!
       render :json => game.to_json
     rescue Exception => error
-      render :json => { :status => 500, :message => error.message, :error => error.message }
+      render :json => { :message => error.message, :error => error.message }, :status => 500
     end
   end
 
@@ -19,7 +19,7 @@ class GamesController < ApplicationController
       game = Game.find(params[:id])
       render :json => game.to_json
     rescue Exception => error
-      render :json => { :status => 500, :message => error.message, :error => error.message }
+      render :json => { :message => error.message, :error => error.message }, :status => 500
     end
   end
 end
