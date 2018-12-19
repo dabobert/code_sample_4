@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
 
 
+  def index
+    render :json => Game.pluck(:id)
+  end
+
   def create
     begin
       game = Game.create!

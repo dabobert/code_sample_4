@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_193731) do
     t.text "board_state"
     t.boolean "player_1_turn", default: true
     t.string "valid_subgames"
+    t.string "meta_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
